@@ -1,7 +1,7 @@
 # coding: utf-8
 import pytest
 
-from commonregex import CommonRegex
+from common_regex import CommonRegex
 
 
 @pytest.fixture(scope='function')
