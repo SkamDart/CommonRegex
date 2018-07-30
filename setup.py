@@ -8,5 +8,5 @@ setup(
     packages=find_packages(),
     py_modules=['common_regex'],
     url='https://github.com/SkamDart/CommonRegex',
-    version='1.0.0'
+    version='1.0.1'
 )
