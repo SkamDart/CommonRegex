@@ -155,3 +155,23 @@ def test_po_boxes(po_box):
 @pytest.mark.parametrize('zip_code', ["02540", "02540-4119"])
 def test_zip_codes(zip_code):
     assert parser().zip_codes(zip_code)
+
+
+@pytest.mark.parametrize('input', [
+    ("0000-0000-0000-0000"),
+    ("john.smith@gmail.com"),
+    ("(123) 456 7890"),
+    ("PO Box 123456"),
+    ("3 elm boulevard"),
+    ('02540-4119'),
+])
+def test_finds_pii(parser, input):
+    assert parser.has_pii(input)
+
+
+@pytest.mark.parametrize('input', [
+    "09:45",
+    "1-19-14",
+])
+def test_ingnores_not_pii(parser, input):
+    assert parser.has_pii(input) is False
