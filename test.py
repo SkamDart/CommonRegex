@@ -158,12 +158,12 @@ def test_zip_codes(zip_code):
 
 
 @pytest.mark.parametrize('input', [
-    ("0000-0000-0000-0000"),
-    ("john.smith@gmail.com"),
-    ("(123) 456 7890"),
-    ("PO Box 123456"),
-    ("3 elm boulevard"),
-    ('02540-4119'),
+    "0000-0000-0000-0000",
+    "john.smith@gmail.com",
+    "(123) 456 7890",
+    "PO Box 123456",
+    "3 elm boulevard",
+    '02540-4119',
 ])
 def test_finds_pii(parser, input):
     assert parser.has_pii(input)
