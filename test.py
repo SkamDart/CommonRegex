@@ -1,4 +1,6 @@
 # coding: utf-8
+import datetime
+
 import pytest
 
 from common_regex import CommonRegex
@@ -174,4 +176,14 @@ def test_finds_pii(parser, input):
     "1-19-14",
 ])
 def test_ingnores_not_pii(parser, input):
+    assert parser.has_pii(input) is False
+
+
+@pytest.mark.parametrize('input', [
+    None,
+    [],
+    (),
+    datetime.datetime.utcnow()
+])
+def test_invalid_type(parser, input):
     assert parser.has_pii(input) is False

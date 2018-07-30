@@ -10,7 +10,10 @@ class regex:
 
     def __call__(self, *args):
         def regex_method(text=None):
-            return [x.strip() for x in self.regex.findall(text or self.obj.text)]
+            search_text = text or self.obj.text
+            if search_text is None:
+                return []
+            return [x.strip() for x in self.regex.findall(str(search_text))]
         return regex_method
 
 
